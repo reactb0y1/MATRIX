@@ -13,15 +13,55 @@ for(i = 0; i < 9; i++) {
 	matrix2[i] = $("#matrix2").find("td").eq(i).text(random);
 }
 
+console.log(matrix1[0]);
+
+var initialData = {
+	m1_x11: matrix1[0],
+	m1_x12: matrix1[1],
+	m1_x13: matrix1[2],
+	m1_x21: matrix1[3],
+	m1_x22: matrix1[4],
+	m1_x23: matrix1[5],
+	m1_x31: matrix1[6],
+	m1_x32: matrix1[7],
+	m1_x33: matrix1[8],
+};
+
+
 var determinant = 
-	($("#matrix1_td1").text() * $("#matrix1_td5").text() * $("#matrix1_td9").text()) + 
-	($("#matrix1_td4").text() * $("#matrix1_td8").text() * $("#matrix1_td3").text()) + 
-	($("#matrix1_td7").text() * $("#matrix1_td2").text() * $("#matrix1_td6").text()) - 
-	($("#matrix1_td7").text() * $("#matrix1_td5").text() * $("#matrix1_td3").text()) - 
-	($("#matrix1_td4").text() * $("#matrix1_td2").text() * $("#matrix1_td9").text()) - 
-	($("#matrix1_td1").text() * $("#matrix1_td8").text() * $("#matrix1_td6").text());
+	(initialData.m1_x11 * initialData.m1_x22 * initialData.m1_x33) + 
+	(initialData.m1_x21 * initialData.m1_x32 * initialData.m1_x13) + 
+	(initialData.m1_x31 * initialData.m1_x12 * initialData.m1_x23) - 
+	(initialData.m1_x31 * initialData.m1_x22 * initialData.m1_x13) - 
+	(initialData.m1_x21 * initialData.m1_x12 * initialData.m1_x33) - 
+	(initialData.m1_x11 * initialData.m1_x32 * initialData.m1_x23);
 
 $(".determinantValue").text(determinant);
 
-/*Придумать как уменьшить громоздкость формулы. Наверняка объекты и методы
-смогут помочь*/
+/*
+var initialData = {
+	m1_x11: $("#matrix1_td1").text(),
+	m1_x12: $("#matrix1_td2").text(),
+	m1_x13: $("#matrix1_td3").text(),
+	m1_x21: $("#matrix1_td4").text(),
+	m1_x22: $("#matrix1_td5").text(),
+	m1_x23: $("#matrix1_td6").text(),
+	m1_x31: $("#matrix1_td7").text(),
+	m1_x32: $("#matrix1_td8").text(),
+	m1_x33: $("#matrix1_td9").text(),
+};*/
+
+/*Какова логика текущего кода?
+	1. Создаются массивы-доступы к пунктам матрицы;
+	2. Циклом наполняем 
+
+То есть matrix1 и matrix2 - это не массивы чисел, которыми потом
+наполняется матрица. Наоборот - они те самые массивы-матрицы, которые
+нужно наполнить.
+
+Вижу, что лучшим, более оптимальным будет код, где
+	1. Создаём массивы / объекты с разными случайными числами
+	2. Наполняем матрицу в DOM данными из массивов / объектов
+	3. Все рассчёты проводим на основе данных из массивов / объектов
+
+	*/
