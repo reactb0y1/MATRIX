@@ -16,17 +16,16 @@ for(i = 0; i < 9; i++) {
 console.log(matrix1[0]);
 
 var initialData = {
-	m1_x11: matrix1[0],
-	m1_x12: matrix1[1],
-	m1_x13: matrix1[2],
-	m1_x21: matrix1[3],
-	m1_x22: matrix1[4],
-	m1_x23: matrix1[5],
-	m1_x31: matrix1[6],
-	m1_x32: matrix1[7],
-	m1_x33: matrix1[8],
+	m1_x11: $("#matrix1_td1").text(),
+	m1_x12: $("#matrix1_td2").text(),
+	m1_x13: $("#matrix1_td3").text(),
+	m1_x21: $("#matrix1_td4").text(),
+	m1_x22: $("#matrix1_td5").text(),
+	m1_x23: $("#matrix1_td6").text(),
+	m1_x31: $("#matrix1_td7").text(),
+	m1_x32: $("#matrix1_td8").text(),
+	m1_x33: $("#matrix1_td9").text(),
 };
-
 
 var determinant = 
 	(initialData.m1_x11 * initialData.m1_x22 * initialData.m1_x33) + 
@@ -38,30 +37,20 @@ var determinant =
 
 $(".determinantValue").text(determinant);
 
-/*
-var initialData = {
-	m1_x11: $("#matrix1_td1").text(),
-	m1_x12: $("#matrix1_td2").text(),
-	m1_x13: $("#matrix1_td3").text(),
-	m1_x21: $("#matrix1_td4").text(),
-	m1_x22: $("#matrix1_td5").text(),
-	m1_x23: $("#matrix1_td6").text(),
-	m1_x31: $("#matrix1_td7").text(),
-	m1_x32: $("#matrix1_td8").text(),
-	m1_x33: $("#matrix1_td9").text(),
-};*/
+var m1 = {
+	x11: 0,
+	x12: 0,
+	x13: 0,
+	x21: 0,
+	x22: 0,
+	x23: 0,
+	x31: 0,
+	x32: 0,
+	x33: 1651,
+}
 
-/*Какова логика текущего кода?
-	1. Создаются массивы-доступы к пунктам матрицы;
-	2. Циклом наполняем 
+for(key in m1) {
+	m1[key] = Math.round(Math.random() * 10);
+}
 
-То есть matrix1 и matrix2 - это не массивы чисел, которыми потом
-наполняется матрица. Наоборот - они те самые массивы-матрицы, которые
-нужно наполнить.
-
-Вижу, что лучшим, более оптимальным будет код, где
-	1. Создаём массивы / объекты с разными случайными числами
-	2. Наполняем матрицу в DOM данными из массивов / объектов
-	3. Все рассчёты проводим на основе данных из массивов / объектов
-
-	*/
+console.log(m1)
