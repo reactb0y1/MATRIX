@@ -8,9 +8,9 @@ for(i = 0; i < 9; i++) {
 	matrix1[i] = $("#matrix1").find("td").eq(i).text(random);
 }
 
-for(i = 0; i < 9; i++) {
+for(j = 0; j < 9; j++) {
 	var random = Math.round(Math.random() * 10);
-	matrix2[i] = $("#matrix2").find("td").eq(i).text(random);
+	matrix2[j] = $("#matrix2").find("td").eq(j).text(random);
 }
 
 console.log(matrix1[0]);
@@ -46,11 +46,25 @@ var m1 = {
 	x23: 0,
 	x31: 0,
 	x32: 0,
-	x33: 1651,
+	x33: 0
 }
 
-for(key in m1) {
-	m1[key] = Math.round(Math.random() * 10);
+for(var key in m1) {
+	document.getElementById(key).innerHTML= m1[key]
+}
+console.log(m1);
+
+arrM1 = [];
+for(key1 in m1) {
+	m1[key1] = Math.round(Math.random() * 10);
+	$("#matrix1").find("td").eq(i).text(m1[key1])
+	// arrM1[key1] = m1[key1];
+}
+console.log(m1);
+console.log(arrM1);
+
+for(ii = 0; ii < 19; ii++) {
+	arrM1[ii] = m1[ii];
 }
 
-console.log(m1)
+console.log(arrM1);
