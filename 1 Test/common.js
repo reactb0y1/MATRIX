@@ -4,12 +4,12 @@ var matrix2 = $("#matrix2").find("td").text();
 
 // Наполняем случайными числами ячейки
 for(i = 0; i < 9; i++) {
-	var random = Math.round(Math.random() * 10);
+	var random = Math.round(Math.random() * 9);
 	matrix1[i] = $("#matrix1").find("td").eq(i).text(random);
 }
 
 for(j = 0; j < 9; j++) {
-	var random = Math.round(Math.random() * 10);
+	var random = Math.round(Math.random() * 9);
 	matrix2[j] = $("#matrix2").find("td").eq(j).text(random);
 }
 
@@ -149,3 +149,27 @@ $("#multMatrix_td6").text(mM.x23);
 $("#multMatrix_td7").text(mM.x31);
 $("#multMatrix_td8").text(mM.x32);
 $("#multMatrix_td9").text(mM.x33);
+
+// -- 6. Обратная матрица
+// Ищем алгебраическое дополнение
+var mAC = {
+	x11: (m1.x22 * m1.x33) - (m1.x32 * m1.x23),
+	x12: -((m1.x21 * m1.x33) - (m1.x23 * m1.x31)),
+	x13: (m1.x21 * m1.x32) - (m1.x22 * m1.x31),
+	x21: -((m1.x12 * m1.x33) - (m1.x13 * m1.x32)),
+	x22: (m1.x11 * m1.x33) - (m1.x13 * m1.x31),
+	x23: -((m1.x11 * m1.x32) - (m1.x12 * m1.x31)),
+	x31: (m1.x12 * m1.x23) - (m1.x13 * m1.x22),
+	x32: -((m1.x11 * m1.x23) - (m1.x13 * m1.x21)),
+	x33: (m1.x11 * m1.x22) - (m1.x12 * m1.x21)
+}
+
+$("#algebraicComplementMatrix_td1").text(mAC.x11);
+$("#algebraicComplementMatrix_td2").text(mAC.x12);
+$("#algebraicComplementMatrix_td3").text(mAC.x13);
+$("#algebraicComplementMatrix_td4").text(mAC.x21);
+$("#algebraicComplementMatrix_td5").text(mAC.x22);
+$("#algebraicComplementMatrix_td6").text(mAC.x23);
+$("#algebraicComplementMatrix_td7").text(mAC.x31);
+$("#algebraicComplementMatrix_td8").text(mAC.x32);
+$("#algebraicComplementMatrix_td9").text(mAC.x33);
