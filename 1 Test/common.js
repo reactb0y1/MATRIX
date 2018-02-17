@@ -38,9 +38,6 @@ var m2 = {
 	x33: $("#matrix2_td9").text(),
 };
 
-console.log(m1);
-console.log(m2);
-
 // -- 1. Рассчитываем определитель для первой матрицы
 var determinant = 
 	(m1.x11 * m1.x22 * m1.x33) + 
@@ -56,12 +53,50 @@ $(".determinantValue").text(determinant);
 var randomNumber = Math.round(Math.random() * 10);
 $("#randomNumber").text(randomNumber);
 
-$("#matrixMultByNumber_td1").text(m1.x11 * randomNumber);
-$("#matrixMultByNumber_td2").text(m1.x12 * randomNumber);
-$("#matrixMultByNumber_td3").text(m1.x13 * randomNumber);
-$("#matrixMultByNumber_td4").text(m1.x21 * randomNumber);
-$("#matrixMultByNumber_td5").text(m1.x22 * randomNumber);
-$("#matrixMultByNumber_td6").text(m1.x23 * randomNumber);
-$("#matrixMultByNumber_td7").text(m1.x31 * randomNumber);
-$("#matrixMultByNumber_td8").text(m1.x32 * randomNumber);
-$("#matrixMultByNumber_td9").text(m1.x33 * randomNumber);
+// Объект с матрицей, умноженной на число
+var m1Mult = {
+	x11: m1.x11 * randomNumber,
+	x12: m1.x12 * randomNumber,
+	x13: m1.x13 * randomNumber,
+	x21: m1.x21 * randomNumber,
+	x22: m1.x22 * randomNumber,
+	x23: m1.x23 * randomNumber,
+	x31: m1.x31 * randomNumber,
+	x32: m1.x32 * randomNumber,
+	x33: m1.x33 * randomNumber,
+}
+
+$("#matrixMultByNumber_td1").text(m1Mult.x11);
+$("#matrixMultByNumber_td2").text(m1Mult.x12);
+$("#matrixMultByNumber_td3").text(m1Mult.x13);
+$("#matrixMultByNumber_td4").text(m1Mult.x21);
+$("#matrixMultByNumber_td5").text(m1Mult.x22);
+$("#matrixMultByNumber_td6").text(m1Mult.x23);
+$("#matrixMultByNumber_td7").text(m1Mult.x31);
+$("#matrixMultByNumber_td8").text(m1Mult.x32);
+$("#matrixMultByNumber_td9").text(m1Mult.x33);
+
+// -- 3. Транспонирование матрицы
+
+// объект с транспонированной матрицей
+var m1T = {
+	x11: m1.x11,
+	x12: m1.x21,
+	x13: m1.x31,
+	x21: m1.x12,
+	x22: m1.x22,
+	x23: m1.x32,
+	x31: m1.x13,
+	x32: m1.x23,
+	x33: m1.x33
+}
+
+$("#transposeMatrix_td1").text(m1T.x11);
+$("#transposeMatrix_td2").text(m1T.x12);
+$("#transposeMatrix_td3").text(m1T.x13);
+$("#transposeMatrix_td4").text(m1T.x21);
+$("#transposeMatrix_td5").text(m1T.x22);
+$("#transposeMatrix_td6").text(m1T.x23);
+$("#transposeMatrix_td7").text(m1T.x31);
+$("#transposeMatrix_td8").text(m1T.x32);
+$("#transposeMatrix_td9").text(m1T.x33);
