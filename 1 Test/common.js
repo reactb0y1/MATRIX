@@ -78,7 +78,7 @@ $("#matrixMultByNumber_td9").text(m1Mult.x33);
 
 // -- 3. Транспонирование матрицы
 
-// объект с транспонированной матрицей
+// Объект с транспонированной матрицей
 var m1T = {
 	x11: m1.x11,
 	x12: m1.x21,
@@ -100,3 +100,28 @@ $("#transposeMatrix_td6").text(m1T.x23);
 $("#transposeMatrix_td7").text(m1T.x31);
 $("#transposeMatrix_td8").text(m1T.x32);
 $("#transposeMatrix_td9").text(m1T.x33);
+
+// -- 4. Сумма матриц
+
+// Объект с суммой матриц
+var mS = {
+	x11: +m1.x11 + +m2.x11,
+	x12: +m1.x12 + +m2.x12,
+	x13: +m1.x13 + +m2.x13,
+	x21: +m1.x21 + +m2.x21,
+	x22: +m1.x22 + +m2.x22,
+	x23: +m1.x23 + +m2.x23,
+	x31: +m1.x31 + +m2.x31,
+	x32: +m1.x32 + +m2.x32,
+	x33: +m1.x33 + +m2.x33
+}
+
+$("#sumMatrix_td1").text(mS.x11);
+$("#sumMatrix_td2").text(mS.x12);
+$("#sumMatrix_td3").text(mS.x13);
+$("#sumMatrix_td4").text(mS.x21);
+$("#sumMatrix_td5").text(mS.x22);
+$("#sumMatrix_td6").text(mS.x23);
+$("#sumMatrix_td7").text(mS.x31);
+$("#sumMatrix_td8").text(mS.x32);
+$("#sumMatrix_td9").text(mS.x33);
