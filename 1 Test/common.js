@@ -41,7 +41,7 @@ var m2 = {
 console.log(m1);
 console.log(m2);
 
-// Рассчитываем определитель для первой матрицы
+// -- 1. Рассчитываем определитель для первой матрицы
 var determinant = 
 	(m1.x11 * m1.x22 * m1.x33) + 
 	(m1.x21 * m1.x32 * m1.x13) + 
@@ -51,3 +51,17 @@ var determinant =
 	(m1.x11 * m1.x32 * m1.x23);
 
 $(".determinantValue").text(determinant);
+
+// -- 2. Умножение на число
+var randomNumber = Math.round(Math.random() * 10);
+$("#randomNumber").text(randomNumber);
+
+$("#matrixMultByNumber_td1").text(m1.x11 * randomNumber);
+$("#matrixMultByNumber_td2").text(m1.x12 * randomNumber);
+$("#matrixMultByNumber_td3").text(m1.x13 * randomNumber);
+$("#matrixMultByNumber_td4").text(m1.x21 * randomNumber);
+$("#matrixMultByNumber_td5").text(m1.x22 * randomNumber);
+$("#matrixMultByNumber_td6").text(m1.x23 * randomNumber);
+$("#matrixMultByNumber_td7").text(m1.x31 * randomNumber);
+$("#matrixMultByNumber_td8").text(m1.x32 * randomNumber);
+$("#matrixMultByNumber_td9").text(m1.x33 * randomNumber);
