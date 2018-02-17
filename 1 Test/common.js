@@ -151,6 +151,11 @@ $("#multMatrix_td8").text(mM.x32);
 $("#multMatrix_td9").text(mM.x33);
 
 // -- 6. Обратная матрица
+// Значение определителя в минус первой степени
+var inverseDeterminant = 1 / determinant;
+
+$(".inverseDeterminantValue").text(inverseDeterminant);
+
 // Ищем алгебраическое дополнение
 var mAC = {
 	x11: (m1.x22 * m1.x33) - (m1.x32 * m1.x23),
@@ -173,3 +178,48 @@ $("#algebraicComplementMatrix_td6").text(mAC.x23);
 $("#algebraicComplementMatrix_td7").text(mAC.x31);
 $("#algebraicComplementMatrix_td8").text(mAC.x32);
 $("#algebraicComplementMatrix_td9").text(mAC.x33);
+
+// Транспонируем алгебраическое дополнение
+var mACT = {	
+	x11: mAC.x11,
+	x12: mAC.x21,
+	x13: mAC.x31,
+	x21: mAC.x12,
+	x22: mAC.x22,
+	x23: mAC.x32,
+	x31: mAC.x13,
+	x32: mAC.x23,
+	x33: mAC.x33
+}
+
+$("#algebraicComplementTranspormMatrix_td1").text(mACT.x11);
+$("#algebraicComplementTranspormMatrix_td2").text(mACT.x12);
+$("#algebraicComplementTranspormMatrix_td3").text(mACT.x13);
+$("#algebraicComplementTranspormMatrix_td4").text(mACT.x21);
+$("#algebraicComplementTranspormMatrix_td5").text(mACT.x22);
+$("#algebraicComplementTranspormMatrix_td6").text(mACT.x23);
+$("#algebraicComplementTranspormMatrix_td7").text(mACT.x31);
+$("#algebraicComplementTranspormMatrix_td8").text(mACT.x32);
+$("#algebraicComplementTranspormMatrix_td9").text(mACT.x33);
+
+var mI = {
+	x11: inverseDeterminant * mACT.x11,
+	x12: inverseDeterminant * mACT.x12,
+	x13: inverseDeterminant * mACT.x13,
+	x21: inverseDeterminant * mACT.x21,
+	x22: inverseDeterminant * mACT.x22,
+	x23: inverseDeterminant * mACT.x23,
+	x31: inverseDeterminant * mACT.x31,
+	x32: inverseDeterminant * mACT.x32,
+	x33: inverseDeterminant * mACT.x33
+}
+
+$("#inverseReultMatrix_td1").text(mI.x11);
+$("#inverseReultMatrix_td2").text(mI.x12);
+$("#inverseReultMatrix_td3").text(mI.x13);
+$("#inverseReultMatrix_td4").text(mI.x21);
+$("#inverseReultMatrix_td5").text(mI.x22);
+$("#inverseReultMatrix_td6").text(mI.x23);
+$("#inverseReultMatrix_td7").text(mI.x31);
+$("#inverseReultMatrix_td8").text(mI.x32);
+$("#inverseReultMatrix_td9").text(mI.x33)
