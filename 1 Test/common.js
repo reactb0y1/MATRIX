@@ -13,58 +13,41 @@ for(j = 0; j < 9; j++) {
 	matrix2[j] = $("#matrix2").find("td").eq(j).text(random);
 }
 
-console.log(matrix1[0]);
-
-var initialData = {
-	m1_x11: $("#matrix1_td1").text(),
-	m1_x12: $("#matrix1_td2").text(),
-	m1_x13: $("#matrix1_td3").text(),
-	m1_x21: $("#matrix1_td4").text(),
-	m1_x22: $("#matrix1_td5").text(),
-	m1_x23: $("#matrix1_td6").text(),
-	m1_x31: $("#matrix1_td7").text(),
-	m1_x32: $("#matrix1_td8").text(),
-	m1_x33: $("#matrix1_td9").text(),
+// Наполнем объекты числами из матрицы
+var m1 = {
+	x11: $("#matrix1_td1").text(),
+	x12: $("#matrix1_td2").text(),
+	x13: $("#matrix1_td3").text(),
+	x21: $("#matrix1_td4").text(),
+	x22: $("#matrix1_td5").text(),
+	x23: $("#matrix1_td6").text(),
+	x31: $("#matrix1_td7").text(),
+	x32: $("#matrix1_td8").text(),
+	x33: $("#matrix1_td9").text(),
 };
 
+var m2 = {
+	x11: $("#matrix2_td1").text(),
+	x12: $("#matrix2_td2").text(),
+	x13: $("#matrix2_td3").text(),
+	x21: $("#matrix2_td4").text(),
+	x22: $("#matrix2_td5").text(),
+	x23: $("#matrix2_td6").text(),
+	x31: $("#matrix2_td7").text(),
+	x32: $("#matrix2_td8").text(),
+	x33: $("#matrix2_td9").text(),
+};
+
+console.log(m1);
+console.log(m2);
+
+// Рассчитываем определитель для первой матрицы
 var determinant = 
-	(initialData.m1_x11 * initialData.m1_x22 * initialData.m1_x33) + 
-	(initialData.m1_x21 * initialData.m1_x32 * initialData.m1_x13) + 
-	(initialData.m1_x31 * initialData.m1_x12 * initialData.m1_x23) - 
-	(initialData.m1_x31 * initialData.m1_x22 * initialData.m1_x13) - 
-	(initialData.m1_x21 * initialData.m1_x12 * initialData.m1_x33) - 
-	(initialData.m1_x11 * initialData.m1_x32 * initialData.m1_x23);
+	(m1.x11 * m1.x22 * m1.x33) + 
+	(m1.x21 * m1.x32 * m1.x13) + 
+	(m1.x31 * m1.x12 * m1.x23) - 
+	(m1.x31 * m1.x22 * m1.x13) - 
+	(m1.x21 * m1.x12 * m1.x33) - 
+	(m1.x11 * m1.x32 * m1.x23);
 
 $(".determinantValue").text(determinant);
-
-var m1 = {
-	x11: 0,
-	x12: 0,
-	x13: 0,
-	x21: 0,
-	x22: 0,
-	x23: 0,
-	x31: 0,
-	x32: 0,
-	x33: 0
-}
-
-for(var key in m1) {
-	document.getElementById(key).innerHTML= m1[key]
-}
-console.log(m1);
-
-arrM1 = [];
-for(key1 in m1) {
-	m1[key1] = Math.round(Math.random() * 10);
-	$("#matrix1").find("td").eq(i).text(m1[key1])
-	// arrM1[key1] = m1[key1];
-}
-console.log(m1);
-console.log(arrM1);
-
-for(ii = 0; ii < 19; ii++) {
-	arrM1[ii] = m1[ii];
-}
-
-console.log(arrM1);
