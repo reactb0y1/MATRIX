@@ -125,3 +125,27 @@ $("#sumMatrix_td6").text(mS.x23);
 $("#sumMatrix_td7").text(mS.x31);
 $("#sumMatrix_td8").text(mS.x32);
 $("#sumMatrix_td9").text(mS.x33);
+
+// -- 5. Умножение матриц
+// Объект с умноженной матрицей
+var mM = {
+	x11: (m1.x11 * m2.x11) + (m1.x12 * m2.x21) + (m1.x13 * m2.x31),
+	x12: (m1.x11 * m2.x12) + (m1.x12 * m2.x22) + (m1.x13 * m2.x32),
+	x13: (m1.x11 * m2.x13) + (m1.x12 * m2.x23) + (m1.x13 * m2.x33),
+	x21: (m1.x21 * m2.x11) + (m1.x22 * m2.x21) + (m1.x23 * m2.x31),
+	x22: (m1.x21 * m2.x12) + (m1.x22 * m2.x22) + (m1.x23 * m2.x32),
+	x23: (m1.x21 * m2.x13) + (m1.x22 * m2.x23) + (m1.x23 * m2.x33),
+	x31: (m1.x31 * m2.x11) + (m1.x32 * m2.x21) + (m1.x33 * m2.x31),
+	x32: (m1.x31 * m2.x12) + (m1.x32 * m2.x22) + (m1.x33 * m2.x32),
+	x33: (m1.x31 * m2.x13) + (m1.x32 * m2.x23) + (m1.x33 * m2.x33)
+}
+
+$("#multMatrix_td1").text(mM.x11);
+$("#multMatrix_td2").text(mM.x12);
+$("#multMatrix_td3").text(mM.x13);
+$("#multMatrix_td4").text(mM.x21);
+$("#multMatrix_td5").text(mM.x22);
+$("#multMatrix_td6").text(mM.x23);
+$("#multMatrix_td7").text(mM.x31);
+$("#multMatrix_td8").text(mM.x32);
+$("#multMatrix_td9").text(mM.x33);
